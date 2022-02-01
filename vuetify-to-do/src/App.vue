@@ -75,6 +75,15 @@
 
 <script>
   export default {
+    theme: {
+    themes: {
+      light: {
+        primary: '#565264',
+        secondary: '#776274',
+        anchor: '#8c9eff',
+      },
+    },
+  },
     data: () => ({ 
         drawer: null,
         items: [
