@@ -38,6 +38,16 @@ export default new Vuex.Store({
       // // clear the field
       // this.newTaskTitle = '';
     },
+    doneTask(state) {
+      // .filter goes thru array looking for the task id we are looking for from the [0] item in array
+      let task = state.tasks.filter(task => task.id === id)[0]
+      //set to opposite
+      task.done = !task.done
+    },
+    deleteTask(state) {
+      // Recreates array with all tasks but the one we are deleting
+      state.tasks = state.tasks.filter(task => task.id !== id)
+    }
   },
   actions: {
   },

@@ -21,7 +21,7 @@
         :key="task.id"
         >
           <v-list-item 
-          @click="doneTask(task.id)"
+          @click="$store.commit('doneTask', task.id)"
           :class="{ 'grey lighten-4': task.done}"
           >
             <template v-slot:default>
@@ -39,7 +39,7 @@
               <v-list-item-action>
                 <v-btn 
                 icon
-                @click.stop="deleteTask(task.id)"
+                @click.stop="$state.commit('deleteTask', task.id)"
                 >
                   <v-icon color="secondary lighten-1">mdi-delete</v-icon>
                 </v-btn>
@@ -84,16 +84,6 @@
       addTask() {
         this.$store.commit('addTask', this.newTaskTitle)
         this.newTaskTitle = '';
-      },
-      doneTask(id) {
-        // .filter goes thru array looking for the task id we are looking for from the [0] item in array
-        let task = this.tasks.filter(task => task.id === id)[0]
-        //set to opposite
-        task.done = !task.done
-      },
-      deleteTask(id) {
-        // Recreates array with all tasks but the one we are deleting
-        this.tasks = this.tasks.filter(task => task.id !== id)
       }
     }
   }
