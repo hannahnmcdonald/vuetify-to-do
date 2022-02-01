@@ -91,6 +91,9 @@
           { title: 'About', icon: 'mdi-help-box', to: '/about'  },
       ],
     }),
+    components: {
+      'snackbar': require('@/components/global/Snackbar.vue').default,
+    }
   }
 </script>
 

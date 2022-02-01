@@ -14,7 +14,7 @@
 <script>
 export default {
     components: {
-        'task': require('@/components/Task.vue').default,
+        'task': require('@/components/Todo/Task.vue').default,
     }
 };
 </script>

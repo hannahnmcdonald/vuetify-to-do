@@ -20,9 +20,9 @@
     name: 'Home',
     // import in components instead of above the export default- less code
     components: {
-      'field-add-task': require('@/components/FieldAddTask.vue').default,
-      'list-tasks': require('@/components/ListTasks.vue').default,
-      'no-tasks': require('@/components/NoTasks.vue').default,
+      'field-add-task': require('@/components/Todo/FieldAddTask.vue').default,
+      'list-tasks': require('@/components/Todo/ListTasks.vue').default,
+      'no-tasks': require('@/components/Todo/NoTasks.vue').default,
     }
   }
 </script>

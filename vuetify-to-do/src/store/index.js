@@ -21,7 +21,10 @@ export default new Vuex.Store({
         title: 'Grocery Shop',
         done: false
       },
-    ]
+    ],
+    snackbar: {
+      show: false
+    }
   },
   mutations: {
     // pass state in first
@@ -47,9 +50,16 @@ export default new Vuex.Store({
     deleteTask(state, id) {
       // Recreates array with all tasks but the one we are deleting
       state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    showSnackbar(state) {
+      state.snackbar.show = true
     }
   },
   actions: {
+    addTask({ commit }, newTaskTitle ) {
+      commit('addTask', newTaskTitle)
+      commit('showSnackbar')
+    }
   },
   getters: {
   }
