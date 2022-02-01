@@ -52,9 +52,17 @@
     </v-list>
     <div
     v-else
+    class="no-tasks"
     >
+    <v-icon
+      size="100"
+      color="secondary"
+
+    >
+      mdi-checkbox-marked-circle-outline
+    </v-icon>
     <div
-    class="text-h5 pa-6 secondary--text"
+    class="text-h5 secondary--text"
     >
     No Tasks
     </div>
@@ -100,3 +108,10 @@
   }
 </script>
 
+<style lang="sass">
+  .no-tasks 
+    position: absolute
+    left: 50%
+    top:50%
+    transform: translate(-50%, -50%)
+</style>
