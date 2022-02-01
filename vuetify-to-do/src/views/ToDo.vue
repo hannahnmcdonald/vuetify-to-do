@@ -2,8 +2,8 @@
   <div class="home pa-2">
     <v-text-field
       v-model="newTaskTitle"
-      @click:append="$store.commit('addTask', newTaskTitle)"
-      @keyup.enter="$store.commit('addTask', newTaskTitle)"
+      @click:append="addTask"
+      @keyup.enter="addTask"
       outlined
       class="pa-3"
       label="Add Task"
@@ -81,6 +81,10 @@
       }
     },
     methods: {
+      addTask() {
+        this.$store.commit('addTask', this.newTaskTitle)
+        this.newTaskTitle = '';
+      },
       doneTask(id) {
         // .filter goes thru array looking for the task id we are looking for from the [0] item in array
         let task = this.tasks.filter(task => task.id === id)[0]
