@@ -1,5 +1,16 @@
 <template>
   <div class="home pa-2">
+    <v-text-field
+      v-model="newTaskTitle"
+      @click:append="addTask"
+      @keyup.enter="addTask"
+      outlined
+      class="pa-3"
+      label="Add Task"
+      append-icon="mdi-plus"
+      hide-details
+      clearable
+      ></v-text-field>
     <v-list
       class="pt-0"
         flat
@@ -45,7 +56,7 @@
 <script>
   export default {
     name: 'Home',
-    // TO DO: Create theme colors
+  // TO DO: Create theme colors
   //   theme: {
   //   themes: {
   //     light: {
@@ -57,6 +68,8 @@
   // },
     data() {
       return {
+        // Set to empty string for now
+        newTaskTitle: "",
         tasks: [
           {
             id: 1,
@@ -77,6 +90,17 @@
       }
     },
     methods: {
+      addTask() {
+        // Create new task object
+        let newTask = {
+          // Date will be our unique task key
+          id: Date.now(),
+          title: this.newTaskTitle,
+          done: false
+        }
+        // Push new task into task array
+        this.tasks.push(newTask);
+      },
       doneTask(id) {
         // .filter goes thru array looking for the task id we are looking for from the [0] item in array
         let task = this.tasks.filter(task => task.id === id)[0]
