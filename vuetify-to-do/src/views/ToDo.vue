@@ -1,21 +1,12 @@
 <template>
   <div class="home pa-2">
-    <v-text-field
-      v-model="newTaskTitle"
-      @click:append="addTask"
-      @keyup.enter="addTask"
-      outlined
-      class="pa-3"
-      label="Add Task"
-      append-icon="mdi-plus"
-      hide-details
-      clearable
-      ></v-text-field>
-    <v-list
+
+    <field-add-task />
+
+    <list-tasks 
       v-if="$store.state.tasks.length"
-      class="pt-0"
-        flat
-      >
+    />
+
       <div
         v-for="task in $store.state.tasks"
         :key="task.id"
@@ -49,11 +40,7 @@
           </v-list-item>
         <v-divider></v-divider>
       </div>
-    </v-list>
-    <div
-    v-else
-    class="no-tasks"
-    >
+
     <v-icon
       size="100"
       color="secondary"
@@ -74,17 +61,10 @@
 <script>
   export default {
     name: 'Home',
-    data() {
-      return {
-        newTaskTitle: "",
-        tasks: []
-      }
-    },
-    methods: {
-      addTask() {
-        this.$store.commit('addTask', this.newTaskTitle)
-        this.newTaskTitle = '';
-      }
+    // import in components instead of above the export default- less code
+    components: {
+      'field-add-task': require('@/components/FieldAddTask.vue').default,
+      'list-tasks': require('@/components/ListTasks.vue').default,
     }
   }
 </script>
