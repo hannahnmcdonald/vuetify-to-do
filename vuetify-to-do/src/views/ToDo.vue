@@ -53,7 +53,10 @@
     },
     methods: {
       doneTask(id) {
-        console.log('id: ', id)
+        // .filter goes thru array looking for the task id we are looking for from the [0] item in array
+        let task = this.tasks.filter(task => task.id === id)[0]
+        //set to opposite
+        task.done = !task.done
       }
     }
   }
