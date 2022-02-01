@@ -2,8 +2,8 @@
   <div class="home pa-2">
     <v-text-field
       v-model="newTaskTitle"
-      @click:append="addTask"
-      @keyup.enter="addTask"
+      @click:append="$store.commit('addTask', newTaskTitle)"
+      @keyup.enter="$store.commit('addTask', newTaskTitle)"
       outlined
       class="pa-3"
       label="Add Task"
@@ -12,17 +12,17 @@
       clearable
       ></v-text-field>
     <v-list
-      v-if="tasks.length"
+      v-if="$store.state.tasks.length"
       class="pt-0"
         flat
       >
       <div
-        v-for="task in tasks"
+        v-for="task in $store.state.tasks"
         :key="task.id"
         >
           <v-list-item 
           @click="doneTask(task.id)"
-          :class="{ 'blue-grey lighten-4': task.done}"
+          :class="{ 'grey lighten-4': task.done}"
           >
             <template v-slot:default>
               <v-list-item-action>
@@ -81,19 +81,6 @@
       }
     },
     methods: {
-      addTask() {
-        // Create new task object
-        let newTask = {
-          // Date will be our unique task key
-          id: Date.now(),
-          title: this.newTaskTitle,
-          done: false
-        }
-        // Push new task into task array
-        this.tasks.push(newTask);
-        // clear the field
-        this.newTaskTitle = '';
-      },
       doneTask(id) {
         // .filter goes thru array looking for the task id we are looking for from the [0] item in array
         let task = this.tasks.filter(task => task.id === id)[0]
@@ -114,4 +101,5 @@
     left: 50%
     top:50%
     transform: translate(-50%, -50%)
+    opacity: 0.5
 </style>
