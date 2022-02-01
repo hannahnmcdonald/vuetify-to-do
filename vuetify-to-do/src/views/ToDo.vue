@@ -12,6 +12,7 @@
       clearable
       ></v-text-field>
     <v-list
+      v-if="tasks.length"
       class="pt-0"
         flat
       >
@@ -49,6 +50,15 @@
         <v-divider></v-divider>
       </div>
     </v-list>
+    <div
+    v-else
+    >
+    <div
+    class="text-h5 pa-6 secondary--text"
+    >
+    No Tasks
+    </div>
+    </div>
   </div>
 </template>
 
@@ -56,37 +66,10 @@
 <script>
   export default {
     name: 'Home',
-  // TO DO: Create theme colors
-  //   theme: {
-  //   themes: {
-  //     light: {
-  //       primary: '#565264',
-  //       secondary: '#776274',
-  //       anchor: '#8c9eff',
-  //     },
-  //   },
-  // },
     data() {
       return {
-        // Set to empty string for now
         newTaskTitle: "",
-        tasks: [
-          {
-            id: 1,
-            title: 'Wake Up',
-            done: false
-          },
-          {
-            id: 2,
-            title: 'Go Run',
-            done: false
-          },
-          {
-            id: 3,
-            title: 'Grocery Shop',
-            done: false
-          },
-        ]
+        tasks: []
       }
     },
     methods: {
@@ -100,6 +83,8 @@
         }
         // Push new task into task array
         this.tasks.push(newTask);
+        // clear the field
+        this.newTaskTitle = '';
       },
       doneTask(id) {
         // .filter goes thru array looking for the task id we are looking for from the [0] item in array
