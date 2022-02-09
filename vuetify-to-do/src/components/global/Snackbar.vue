@@ -20,7 +20,7 @@
 <script>
 export default {
     data: () => ({
-      text: `Task Added Successfully`,
+      text: `Task Added Successfully!`,
     }),
 };
 </script>
