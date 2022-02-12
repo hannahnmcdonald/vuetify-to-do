@@ -8,19 +8,19 @@ export default new Vuex.Store({
     tasks: [
       {
         id: 1,
-        title: 'Wake Up',
+        title: 'Wake up',
         done: false
       },
       {
         id: 2,
-        title: 'Go Run',
+        title: 'Get bananas',
         done: false
       },
       {
         id: 3,
-        title: 'Grocery Shop',
+        title: 'Eat bananas',
         done: false
-      },
+      }
     ],
     snackbar: {
       show: false,
@@ -28,29 +28,24 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    // pass state in first
     addTask(state, newTaskTitle) {
-      // Create new task object
       let newTask = {
-        // Date will be our unique task key
         id: Date.now(),
         title: newTaskTitle,
         done: false
       }
-      // Push new task into task array
-      state.tasks.push(newTask);
-      // // clear the field
-      // this.newTaskTitle = '';
+      state.tasks.push(newTask)
     },
     doneTask(state, id) {
-      // .filter goes thru array looking for the task id we are looking for from the [0] item in array
       let task = state.tasks.filter(task => task.id === id)[0]
-      //set to opposite
       task.done = !task.done
     },
     deleteTask(state, id) {
-      // Recreates array with all tasks but the one we are deleting
       state.tasks = state.tasks.filter(task => task.id !== id)
+    },
+    updateTaskTitle(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0]
+      task.title = payload.title
     },
     showSnackbar(state, text) {
       let timeout = 0
@@ -75,6 +70,10 @@ export default new Vuex.Store({
     deleteTask({ commit }, id) {
       commit('deleteTask', id)
       commit('showSnackbar', 'Task deleted!')
+    },
+    updateTaskTitle({ commit }, payload) {
+      commit('updateTaskTitle', payload)
+      commit('showSnackbar', 'Task updated!')
     }
   },
   getters: {
