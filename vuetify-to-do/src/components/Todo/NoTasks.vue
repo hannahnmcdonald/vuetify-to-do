@@ -5,15 +5,10 @@
         <v-icon
         size="100"
         color="secondary"
-
         >
             mdi-checkbox-marked-circle-outline
         </v-icon>
-        <div
-        class="text-h5 secondary--text"
-        >
-        No Tasks
-        </div>
+        <div class="text-h5 secondary--text"> No Tasks </div>
     </div>
 </template>
 
