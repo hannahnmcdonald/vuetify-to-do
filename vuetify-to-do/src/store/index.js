@@ -23,7 +23,8 @@ export default new Vuex.Store({
       },
     ],
     snackbar: {
-      show: false
+      show: false,
+      text: ''
     }
   },
   mutations: {
