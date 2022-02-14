@@ -75,15 +75,6 @@
 
 <script>
   export default {
-  //   theme: {
-  //   themes: {
-  //     light: {
-  //       primary: '#565264',
-  //       secondary: '#776274',
-  //       anchor: '#8c9eff',
-  //     },
-  //   },
-  // },
     data: () => ({ 
         drawer: null,
         items: [
@@ -93,6 +84,7 @@
     }),
     components: {
       'snackbar': require('@/components/global/Snackbar.vue').default,
+      'search': require('@/components/Tools/Search.vue').default
     }
   }
 </script>
