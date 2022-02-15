@@ -1,4 +1,5 @@
-<template>
+<template> 
+
   <v-text-field
     :value="$store.state.search"
     @input="$store.commit('setSearch', $event)"
