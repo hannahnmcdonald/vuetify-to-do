@@ -38,10 +38,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { format } from 'date-fns'
 
-export default {
+export default Vue.extend({
+
   props: ['task'],
   filters: {
     niceDate(value) {
@@ -51,5 +53,5 @@ export default {
   components: {
     'task-menu': require('@/components/Todo/TaskMenu.vue').default
   }
-}
+});
 </script>

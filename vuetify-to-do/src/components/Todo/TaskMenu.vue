@@ -48,8 +48,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   props: ['task'],
   data: () => ({
     dialogs: {
@@ -91,7 +93,7 @@ export default {
     'dialog-due-date': require('@/components/Todo/Dialogs/DialogDueDate.vue').default,
     'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default,
   }
-}
+});
 </script>
 
 <style>

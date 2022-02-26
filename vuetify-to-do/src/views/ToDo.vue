@@ -14,9 +14,10 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
 
-<script>
-  export default {
+export default Vue.extend({
     name: 'Home',
     // import in components instead of above the export default- less code
     components: {
@@ -24,6 +25,6 @@
       'list-tasks': require('@/components/Todo/ListTasks.vue').default,
       'no-tasks': require('@/components/Todo/NoTasks.vue').default,
     }
-  }
+  });
 </script>
 

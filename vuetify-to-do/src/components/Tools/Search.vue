@@ -15,14 +15,16 @@
   ></v-text-field>  
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   data() {
     return {
       searchClosed: true
     }
   }
-}
+});
 </script>
 
 <style lang="sass">
