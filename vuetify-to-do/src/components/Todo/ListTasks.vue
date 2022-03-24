@@ -11,12 +11,10 @@
     </v-list>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
+<script>
+export default {
     components: {
         'task': require('@/components/Todo/Task.vue').default,
     }
-});
+};
 </script>

@@ -1,60 +1,83 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="inspire">
+  <v-navigation-drawer
+    v-model="drawer"
+    app>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6">
+            Vuetify To Do
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-divider></v-divider>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+      <v-list
+        dense
+        nav
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+         :to="item.to"
+          link
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
 
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+<v-app-bar
+      src="appbar.png"
+      dark
+      prominent
+      app
+    >
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+        ></v-img>
+      </template>
+
+            <v-container class="pa-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search />
+        </v-row>
+        <v-row>
+          <v-toolbar-title class="ml-4">Vuetify Todo</v-toolbar-title>
+        </v-row>
+      </v-container>
+
+      </v-app-bar>
+      
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
-export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+  export default {
+    data: () => ({ 
+        drawer: null,
+        items: [
+          { title: 'To Do', icon: 'mdi-format-list-checks', to: '/' },
+          { title: 'About', icon: 'mdi-help-box', to: '/about'  },
+      ],
+    }),
+    components: {
+      'snackbar': require('@/components/global/Snackbar.vue').default,
+      'search': require('@/components/Tools/Search.vue').default
+    }
+  }
 </script>
+

@@ -36,7 +36,7 @@
   </v-dialog>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: ['task'],
   data() {
