@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/vue-app-deploy-example/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/vuetify-to-do/'
+  : '/'
 }
