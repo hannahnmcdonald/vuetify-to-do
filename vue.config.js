@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/vuetify-to-do/'
+  publicPath: process.env.VUE_APP_PUBLIC_PATH
 }
