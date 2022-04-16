@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "publish": "npm run build && rm -rf docs; cp -r dist docs && sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html",
     "dist": "vue-cli-service build --mode production",
-    "deploy": "cd dist && cp index.html 404.html && cd .. && gh-pages -d dist"
+    "deploy": "cd dist && cd index.html 404.html && cd .. && gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
