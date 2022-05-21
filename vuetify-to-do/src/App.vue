@@ -1,7 +1,5 @@
 <template>
   <v-app id="inspire">
-      <VueInjectJs src="src/assets/js/core.min.js" />
-      <VueInjectJs src="src/assets/js/script.js" />
   <v-navigation-drawer
     v-model="drawer"
     app>
@@ -68,7 +66,6 @@
 </template>
 
 <script>
-import VueInjectJs from 'vue-inject-js'
   export default {
     data: () => ({ 
         drawer: null,
@@ -79,8 +76,7 @@ import VueInjectJs from 'vue-inject-js'
     }),
     components: {
       'snackbar': require('@/components/global/Snackbar.vue').default,
-      'search': require('@/components/Tools/Search.vue').default,
-      VueInjectJs
+      'search': require('@/components/Tools/Search.vue').default
     }
   }
 </script>
