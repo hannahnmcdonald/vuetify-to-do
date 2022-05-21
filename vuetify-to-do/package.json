@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "publish": "npm run build && rm -rf docs; cp -r dist docs && sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html",
     "dist": "vue-cli-service build --mode production",
-    "deploy": "cd dist && cd index.html 404.html && cd .. && gh-pages -d dist"
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -27,6 +27,7 @@
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.5",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0"
+    "vuetify-loader": "^1.7.0",
+    "execa": "latest"
   }
 }
