@@ -1,7 +1,7 @@
 {
   "name": "vuetify-to-do",
   "version": "0.1.0",
-  "homepage": "https://hannahnmcdonald.github.io/vuetify-to-do/",
+  "homepage": "https://hannahnmcdonald.github.io/",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
